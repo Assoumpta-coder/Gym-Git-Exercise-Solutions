@@ -331,4 +331,150 @@ To https://github.com/Assoumpta-coder/Gym-Git-Exercise-Solutions.git
 branch 'dev' set up to track 'origin/dev'.
 
 airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
-$```
+```
+
+### Exercise2
+
+```bash
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ touch home.html
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git add home.html 
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash push -m "home page added to staging area"
+Saved working directory and index state On dev: home page added to staging area   
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ touch about.html
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git add about.html 
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash push -m "added about to stagi
+ng area, ready for next commit"
+Saved working directory and index state On dev: added about to staging area, ready for next commit
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ touch team.html
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git add team.html 
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash push -m "added team to staging area too"
+Saved working directory and index state On dev: added team to staging area too    
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash list
+stash@{0}: On dev: added team to staging area too
+stash@{1}: On dev: added about to staging area, ready for next commit
+stash@{2}: On dev: home page added to staging area
+:
+stash@{0}: On dev: added team to staging area too
+stash@{1}: On dev: added about to staging area, ready for next commit
+stash@{2}: On dev: home page added to staging area
+:
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+gigit stash pop stash@{1}
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+
+Dropped stash@{1} (d00c17eb0422e4947d4de2eab6782f7b739b706b)
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash list
+stash@{0}: On dev: added team to staging area too
+stash@{1}: On dev: home page added to staging area
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash pop stash@{1}
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   home.html
+
+Dropped stash@{1} (3468ca746643ddd30187c06d4144a43fde9bf41c)
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash list
+stash@{0}: On dev: added team to staging area too
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git status
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   home.html
+
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git add home.html 
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git status
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+        modified:   home.html
+
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git commit -m "restored home and about 
+files"
+[dev daa77c5] restored home and about files
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+ create mode 100644 about.html
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git push origin dev
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.      
+Delta compression using up to 4 threads  
+Compressing objects: 100% (4/4), done.   
+Writing objects: 100% (4/4), 581 bytes | 290.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Assoumpta-coder/Gym-Git-Exercise-Solutions.git
+   ee85343..daa77c5  dev -> dev
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git stash pop stash@{0}
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   team.html
+
+Dropped stash@{0} (a6abed6bc99043e7546c60690bd90d6a538cf58b)
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git reset
+
+airah@Assoumpta MINGW64 ~/OneDrive/Desktop/GitExercise (dev)
+$ git reset --hard
+HEAD is now at daa77c5 restored home and about files```
